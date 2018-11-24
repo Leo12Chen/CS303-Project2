@@ -13,13 +13,13 @@ int main(){
 	bool result = AVL.is_null();
 
 	Folder* fl = new Folder("X",2);
-  Folder* f2 = new Folder("y",3);
+        Folder* f2 = new Folder("y",3);
   
 	AVL_Tree<Folder*> AVL_Folder;
 
 	AVL_Folder.insert(f1);
 
-  Folder* f = AVL_Folder.find(fl);
+        Folder* f = AVL_Folder.find(fl);
 
 	f->set_name("Z");
 
