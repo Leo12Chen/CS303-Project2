@@ -47,6 +47,34 @@ public:
 		}
 	}
 	
+	void delete_folder(string path, string folder_name)
+	{
+		int folder_size = ListOfFolder.size();
+		Folder new_folder(folder_name, NULL); // NOT SURE HOW I AM ABLE TO CREATE A FOLDER BASED OFF ONLY THE STRING NAME
+		string s = path + "/";
+		string delimiter = "/";
+		size_t pos = 0;
+		string token;
+
+		while ((pos = s.find(delimiter)) != string::npos) {
+			token = s.substr(0, pos);
+			s.erase(0, pos + delimiter.length());
+
+			for (int i = 0; i != folder_size; i++)
+			{
+				if (token == ListOfFolder[i].getname() && s == "")
+					ListOfFolder[i].ListOfFolder.erase(new_folder); // NOT WORKING
+
+				else if (token == ListOfFolder[i].getname() && s != "")
+					folder_size = ListOfFolder[i].ListOfFolder.size();
+
+				else
+					cout << "Path Does Not Exist!" << endl;
+			}
+
+		}
+	}
+	
 	void setname(string n) { name = n; };
 	string getname() { return name; };
 	void setsize(double s) { size = s; };
