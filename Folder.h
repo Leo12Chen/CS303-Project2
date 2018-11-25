@@ -10,6 +10,7 @@ private:
 	string name;
 	double size;
 	vector<File> ListOfFile;
+	vector<Folder> ListOfFolder;
 public:
 	Folder();
 	Folder(string n, double s) { name = n; size = s; };
