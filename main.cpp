@@ -1,8 +1,13 @@
 
-
+#include <stdio.h>
+#include <string.h>
 #include "AVL_Tree.h"
 #include "Folder.h"
 #include "File.h"
+#include <iostream>
+#include <string>
+#include <array>
+#include <vector>
 
 using namespace std;
 
@@ -12,28 +17,20 @@ void add_folder(string path, string folder_name){
 
 int main(){
 
-	AVL_Tree<Folder> AVL;
-
-	bool result = AVL.is_null();
-
-	Folder* fl = new Folder("X",2);
-        Folder* f2 = new Folder("y",3);
-  
-	AVL_Tree<Folder*> AVL_Folder;
-
-	AVL_Folder.insert(f1);
-
-        Folder* f = AVL_Folder.find(fl);
-
-	f->set_name("Z");
+	Folder* folder1=new Folder("root",0);  //creat a new folder
 
 
-	AVL_Folder.insert(f2);
-	AVL_Folder.erase("quick");
+	AVL_Tree<Folder*> AVL;                 //apply folder to the AVL Tree
+	AVL.insert(folder1);
 
-	AVL_Tree<Folder*> right_subtree = AVL_Folder.get_right_subtree();
 
-	AVL_Tree<Folder*> left_subtree = AVL_Folder.get_left_subtree();
+	File file1 = File("file1", 2);                     //creat a new folder
+	Folder* tempfolder = AVL.find(folder1);            //Using Avl Tree Searching to located the target folder
+	tempfolder->setname("folder2");                    //change the name of target folder
+	tempfolder->addfile(file1);                        //add new file to the target folder
+
+	cout << folder1->getname() << endl;
+	cout << folder1->getsize()<<endl;
 
 
 	return 0;
