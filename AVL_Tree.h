@@ -38,7 +38,7 @@ public:
 	@throws std::invalid_argument if null tree
 	*/
 
-	const AVL_Tree<Item_Type> get_data() const {
+	Item_Type get_data() const {
 		if (root == NULL) {
 			throw std::invalid_argument("get_data on null tree");
 		}
