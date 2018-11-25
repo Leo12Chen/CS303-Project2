@@ -6,6 +6,10 @@
 
 using namespace std;
 
+void add_folder(string path, string folder_name){
+
+}
+
 int main(){
 
 	AVL_Tree<Folder> AVL;
