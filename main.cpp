@@ -64,6 +64,25 @@ File get_file(AVL_Tree<File*>& avl, string path, string file_name)
 
 }
 
+void delete_files(AVL_Tree<File*>& avl, string path, string file_name)
+{
+
+	File new_file(file_name);
+	string s = path + "/";
+	string delimiter = "/";
+	size_t pos = 0;
+	string token;
+
+	while ((pos = s.find(delimiter)) != string::npos) {
+		token = s.substr(0, pos);
+		s.erase(0, pos + delimiter.length());
+	}
+	File* find_file = new File(token);
+	File* temp = avl.find(find_file);
+	temp = NULL;
+
+}
+
 int main(){
 
 	Folder* folder1=new Folder("root",0);  //creat a new folder
