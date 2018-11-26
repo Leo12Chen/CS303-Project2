@@ -9,6 +9,7 @@ private:
 	double size;
 public:
 	File();
+	File(string n) { name = n; };
 	File(string n, double s) { name = n; size = s; };
 	void setname(string n) { name = n; };
 	string getname() { return name; };
