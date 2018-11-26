@@ -281,6 +281,7 @@ int main() {                          //the simulator
 			break;
 		}
 		case 6: {
+			system("CLS");
 			for (int i = 0; i < folders.size(); i++) {
 				cout << "Name: " << folders[i].getname() << "  Size: " << folders[i].getsize() << endl;
 			}
@@ -288,6 +289,7 @@ int main() {                          //the simulator
 		}
 		case 7: {
 			counter = 1;
+			system("CLS");
 			cout << "Thank you very much for grading our project, hope you have a beautiful day!" << endl;
 			break;
 		}
