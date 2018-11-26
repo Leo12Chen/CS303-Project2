@@ -45,6 +45,25 @@ void delete_folder(AVL_Tree<Folder*>& avl, string path, string folder_name)
 	temp->ListOfFolder.pop_back();
 }
 
+File get_file(AVL_Tree<File*>& avl, string path, string file_name)
+{
+	File new_file(file_name);
+	string s = path + "/";
+	string delimiter = "/";
+	size_t pos = 0;
+	string token;
+
+	while ((pos = s.find(delimiter)) != string::npos) {
+		token = s.substr(0, pos);
+		s.erase(0, pos + delimiter.length());
+	}
+	File* find_file = new File(token);
+	File* re_file = avl.find(find_file);
+	File return_file = re_file->getname();
+	return return_file;
+
+}
+
 int main(){
 
 	Folder* folder1=new Folder("root",0);  //creat a new folder
