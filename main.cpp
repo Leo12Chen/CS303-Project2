@@ -11,8 +11,21 @@
 
 using namespace std;
 
-void add_folder(string path, string folder_name){
+void add_folder(AVL_Tree<Folder*>& avl, string path, string folder_name)
+{
+	Folder new_folder(folder_name);
+	string s = path + "/";
+	string delimiter = "/";
+	size_t pos = 0;
+	string token;
 
+	while ((pos = s.find(delimiter)) != string::npos) {
+		token = s.substr(0, pos);
+		s.erase(0, pos + delimiter.length());
+	}
+	Folder* find_folder = new Folder(token);
+	Folder* temp = avl.find(find_folder);
+	temp->ListOfFolder.push_back(new_folder);
 }
 
 int main(){
